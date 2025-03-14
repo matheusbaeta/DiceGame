@@ -19,6 +19,9 @@ This is a simple Android dice game built using Kotlin. The game allows users to 
 - **Android SDK**
 - **XML Layouts**
 
+## 📥 Download
+- Official stable releases of the project can be found [here](https://github.com/matheusbaeta/DiceGame/releases).
+
 ## 🚀 How to Run
 1. Clone the repository:
    ```sh
