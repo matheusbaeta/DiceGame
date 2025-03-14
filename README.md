@@ -1,4 +1,4 @@
-# 🎲 Simple Dice Game (Android | Kotlin)
+# 🎲 Dice Game (Android | Kotlin)
 
 This is a simple Android dice game built using Kotlin. The game allows users to roll up to three dice, displaying the total value of the roll. Players can also add or remove dice, with a maximum of three active dice at a time.
 
@@ -9,6 +9,9 @@ This is a simple Android dice game built using Kotlin. The game allows users to 
 - 🏆 Minimalistic and easy-to-use UI
 
 ## 📸 Screenshots
+
+| ![example_one_dice](images/example_dice_01.png) | ![example_two_dices](images/example_dice_02.png) | ![example_three_dice](images/example_dice_03.png) |
+|:---:|:---:|:---:|
 
 
 ## 🛠️ Technologies Used
