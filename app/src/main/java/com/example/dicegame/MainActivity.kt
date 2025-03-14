@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         dicesArray.first().isActive = true
 
         btnRoll.setOnClickListener {
-
             for((index, dice) in dicesArray.withIndex()) {
                 if(dice.isActive) {
                     var randomValue = randomizeDice()
@@ -63,17 +62,20 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            var sum = dicesArray.filter { it.isActive }.sumOf { it.points }
-
-            tvTotalPoints.setText("TOTAL: $sum")
+            updateTotalPoints()
         }
 
         btnAdd.setOnClickListener {
             val activeDices = getActiveDices()
             if(activeDices < 3) {
                 var inactiveIndex = dicesArray.indexOfFirst { dice -> !dice.isActive }
+
                 imagesArr[inactiveIndex].visibility = View.VISIBLE
+
                 dicesArray[inactiveIndex].isActive = true
+                dicesArray[inactiveIndex].points = 1
+
+                updateTotalPoints()
             }
         }
 
@@ -81,8 +83,13 @@ class MainActivity : AppCompatActivity() {
             val activeDices = getActiveDices()
             if(activeDices > 1) {
                 var lastActiveIndex = dicesArray.indexOfLast { dice -> dice.isActive }
+
                 imagesArr[lastActiveIndex].visibility = View.GONE
+
                 dicesArray[lastActiveIndex].isActive = false
+                dicesArray[lastActiveIndex].points = 0
+
+                updateTotalPoints()
             }
         }
     }
@@ -93,6 +100,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun getActiveDices(): Int {
         return dicesArray.count{ it.isActive }
+    }
+
+    private fun updateTotalPoints() {
+        var totalSum = dicesArray.filter { it.isActive }.sumOf { it.points }
+        tvTotalPoints.setText("TOTAL: $totalSum")
     }
 }
 
